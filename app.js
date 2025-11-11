@@ -1,4 +1,5 @@
 const sliderContainer = document.querySelector('.vehicle-slider');
+
 if (sliderContainer) {
   let index = 1;
   let isTransitioning = false;
@@ -9,6 +10,16 @@ if (sliderContainer) {
   const images = sliderContainer.querySelectorAll('.slides img');
   const next = sliderContainer.querySelector('.next');
   const dotsContainer = sliderContainer.querySelector('.dots');
+
+  // Force GPU acceleration for smoother transitions
+  slidesWrapper.style.willChange = 'transform';
+  slidesWrapper.style.transform = 'translate3d(0,0,0)';
+
+  // Preload images to avoid rendering lag
+  images.forEach(img => {
+    const temp = new Image();
+    temp.src = img.src;
+  });
 
   // Clone first and last images for infinite looping
   const firstClone = images[0].cloneNode(true);
@@ -28,8 +39,9 @@ if (sliderContainer) {
     dot.className = 'dot';
     if (i === 0) dot.classList.add('active');
     dot.addEventListener('click', () => {
-      showSlide(i + 1);
-      pauseAutoSlide(10000); // pause for 10s when manually clicked
+      const targetIndex = i + 1; // account for prepended clone
+      showSlide(targetIndex, true);
+      pauseAutoSlide(10000);
     });
     dotsContainer.appendChild(dot);
   });
@@ -41,11 +53,11 @@ if (sliderContainer) {
     let dotIndex = index - 1;
     if (dotIndex < 0) dotIndex = images.length - 1;
     if (dotIndex >= images.length) dotIndex = 0;
-    dots[dotIndex].classList.add('active');
+    if (dots[dotIndex]) dots[dotIndex].classList.add('active');
   }
 
-  function showSlide(i) {
-    if (isTransitioning) return;
+  function showSlide(i, ignoreTransition = false) {
+    if (isTransitioning && !ignoreTransition) return;
     isTransitioning = true;
     index = i;
     slidesWrapper.style.transition = 'transform 0.5s ease-in-out';
@@ -54,6 +66,7 @@ if (sliderContainer) {
   }
 
   slidesWrapper.addEventListener('transitionend', () => {
+    // Handle infinite loop with clones
     if (allImages[index].isSameNode(firstClone)) {
       slidesWrapper.style.transition = 'none';
       index = 1;
@@ -67,9 +80,10 @@ if (sliderContainer) {
     updateDots();
   });
 
+  // Next button
   next.addEventListener('click', () => {
     showSlide(index + 1);
-    pauseAutoSlide(10000); // pause for 10s when manually clicked
+    pauseAutoSlide(10000);
   });
 
   // Swipe gestures
@@ -92,13 +106,13 @@ if (sliderContainer) {
     if (!isSwiping) return;
     const dx = e.changedTouches[0].clientX - startX;
 
-    // Commit to a direction even for small swipes, but ignore tiny finger jitter (<10px)
+    // Commit any swipe direction, ignore tiny jitter
     if (dx > 10) {
       showSlide(index - 1);
     } else if (dx < -10) {
       showSlide(index + 1);
     } else {
-      // If almost no movement, snap back to current slide
+      // Snap back if almost no movement
       slidesWrapper.style.transition = 'transform 0.3s ease-in-out';
       slidesWrapper.style.transform = `translateX(-${index * 70}%)`;
     }
@@ -107,8 +121,7 @@ if (sliderContainer) {
     pauseAutoSlide(10000);
   });
 
-
-  // Enlarge image
+  // Enlarge image overlay
   images.forEach((img, i) => {
     img.addEventListener('click', e => {
       e.stopPropagation();
@@ -119,13 +132,12 @@ if (sliderContainer) {
         position: fixed;
         top: 0; left: 0;
         width: 100vw; height: 100vh;
-        background-color: rgba(0,0,0,0.85);
+        background-color: rgba(0,0,0,0.7);
         z-index: 1000;
         display: flex;
         justify-content: center;
         align-items: center;
       `;
-
       overlay.addEventListener('click', () => document.body.removeChild(overlay));
 
       const enlargedImg = document.createElement('img');
@@ -140,7 +152,7 @@ if (sliderContainer) {
       enlargedImg.addEventListener('click', e => e.stopPropagation());
       overlay.appendChild(enlargedImg);
 
-      // Navigation buttons
+      // Arrow buttons
       const createArrow = (symbol, side, onClick) => {
         const btn = document.createElement('button');
         btn.innerHTML = symbol;
@@ -205,7 +217,7 @@ if (sliderContainer) {
     });
   });
 
-  // Auto-slide logic
+  // Auto-slide
   function startAutoSlide() {
     clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(() => {
