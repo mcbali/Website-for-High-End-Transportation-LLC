@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>High-End Transportation, LLC — Ride in <span>Style</span></title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="High-End Transportation - Professional chauffeur service in a 2026 Cadillac Escalade. Book now — Las Vegas.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="assets/logo.jpg" alt="High-End Transportation logo" class="logo" id="logo">
+      <nav class="top-actions">
+        <a href="tel:+13234209775" class="btn btn-outline" aria-label="Call now">Call</a>
+        <a href="#contact" class="btn btn-primary" aria-label="Book now">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <!-- Replace with a high-res photo of the 2026 Escalade (dark overlay applied in CSS) -->
+        <img src="assets/escalade_front.jpg" alt="2026 Black Cadillac Escalade" />
+      </div>
+      <div class="hero-content">
+        <h1 id="hero-title" class="brand">
+          <span class="brand-name">High-End Transportation, LLC</span>
+        </h1>
+        <p class="tagline">Ride in <span class="cursive">Style</span></p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">Book Now</a>
+          <a class="btn btn-ghost" href="sms:+13234209775?body=Hi%20Edison%2C%20I%27d%20like%20to%20book%20a%20ride" aria-label="Text us">Text</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="assets/interior.jpg" alt="Escalade interior" />
+        </div>
+        <div class="about-copy">
+          <h2>Professional Chauffeur Service</h2>
+          <p>I'm <strong>Edison Timoteo</strong> — professional chauffeur based in Las Vegas. I provide premium private rides in a 2026 Cadillac Escalade for airport transfers, corporate events, and special occasions.</p>
+          <ul class="contact-list">
+            <li><strong>Phone:</strong> <a href="tel:+13234209775">+1 (323) 420-9775</a></li>
+            <li><strong>Email:</strong> <a href="mailto:edison@example.com">edison@example.com</a></li>
+            <li><strong>Service area:</strong> Las Vegas, NV</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- VEHICLE SHOWCASE / SLIDER -->
+    <section class="showcase" aria-labelledby="showcase-title">
+      <h2 id="showcase-title">2026 Cadillac Escalade</h2>
+
+      <div class="slider" id="slider">
+        <button class="slider-btn prev" aria-label="Previous image">&#10094;</button>
+
+        <div class="slides" id="slides">
+          <!-- Replace these src attributes with real photos -->
+          <figure class="slide" data-caption="2026 Cadillac Escalade — Exterior front">
+            <img src="assets/esc-front.jpg" alt="Escalade front view">
+            <figcaption>2026 Cadillac Escalade — Exterior front</figcaption>
+          </figure>
+
+          <figure class="slide" data-caption="Spacious leather interior">
+            <img src="assets/esc-interior.jpg" alt="Escalade interior leather seats">
+            <figcaption>Spacious leather interior</figcaption>
+          </figure>
+
+          <figure class="slide" data-caption="Luxury detailing & amenities">
+            <img src="assets/esc-detail.jpg" alt="Escalade dashboard and trim">
+            <figcaption>Luxury detailing & amenities</figcaption>
+          </figure>
+        </div>
+
+        <button class="slider-btn next" aria-label="Next image">&#10095;</button>
+
+        <div class="slider-meta">
+          <div id="slide-caption" class="caption">2026 Cadillac Escalade — Exterior front</div>
+          <div class="rate">$100 / hr</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <h2>Services & Packages</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Airport Transfer</h3>
+          <p>Timely pickups and drop-offs to/from LAS — flight tracking available.</p>
+        </article>
+        <article class="card">
+          <h3>Corporate & Executive</h3>
+          <p>Professional, discreet service for business travelers and VIPs.</p>
+        </article>
+        <article class="card">
+          <h3>Special Occasions</h3>
+          <p>Weddings, nights out, and events — arrive in luxury.</p>
+        </article>
+        <article class="card">
+          <h3>Hourly Charter</h3>
+          <p>Flexible hourly bookings — perfect for tours or multi-stop trips.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT / BOOKING -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact & Booking</h2>
+
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <p class="lead">Quick actions</p>
+          <div class="quick-actions">
+            <a class="btn large" href="tel:+13234209775">Call Now</a>
+            <a class="btn large btn-ghost" href="sms:+13234209775?body=Hi%20Edison%2C%20I%27d%20like%20to%20book%20a%20ride">Text</a>
+            <a class="btn large" href="mailto:edison@example.com">Email</a>
+          </div>
+          <p class="small">Prefer we handle bookings for you? Call or text and Edison will confirm availability.</p>
+        </div>
+
+        <form class="booking-form" id="booking-form" aria-label="Booking form">
+          <label>
+            Full name
+            <input type="text" name="name" required placeholder="Your full name">
+          </label>
+
+          <label>
+            Phone
+            <input type="tel" name="phone" required placeholder="+1 (___) ___-____">
+          </label>
+
+          <label>
+            Date & Time
+            <input type="datetime-local" name="datetime" required>
+          </label>
+
+          <label>
+            Message / Pickup & Dropoff
+            <textarea name="message" placeholder="Pickup address, destination, special requests"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Request Booking</button>
+            <button type="reset" class="btn btn-outline">Clear</button>
+          </div>
+
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <small>© <span id="year"></span> High-End Transportation, LLC — All rights reserved</small>
+    </div>
+  </footer>
+
+  <script>
+    // small JS: slider and form UX
+    (function () {
+      // year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Slider
+      const slidesEl = document.getElementById('slides');
+      const slides = Array.from(slidesEl.querySelectorAll('.slide'));
+      const caption = document.getElementById('slide-caption');
+      let index = 0;
+      let autoId = null;
+      const slideCount = slides.length;
+
+      function showSlide(i) {
+        index = (i + slideCount) % slideCount;
+        slides.forEach((s, idx) => {
+          s.style.transform = `translateX(${(idx - index) * 100}%)`;
+        });
+        // update caption
+        const cap = slides[index].dataset.caption || slides[index].querySelector('figcaption')?.textContent || '';
+        caption.textContent = cap;
+      }
+
+      function next() { showSlide(index + 1); }
+      function prev() { showSlide(index - 1); }
+
+      // initialize positions
+      slides.forEach((s, idx) => {
+        s.style.minWidth = '100%';
+        s.style.left = 0;
+        s.style.transform = `translateX(${idx * 100}%)`;
+      });
+      showSlide(0);
+
+      // buttons
+      document.querySelector('.slider .next').addEventListener('click', () => { pauseAuto(); next(); });
+      document.querySelector('.slider .prev').addEventListener('click', () => { pauseAuto(); prev(); });
+
+      // auto play
+      function startAuto() {
+        if (autoId) return;
+        autoId = setInterval(() => next(), 5000);
+      }
+      function stopAuto() { clearInterval(autoId); autoId = null; }
+      function pauseAuto() { stopAuto(); setTimeout(startAuto, 8000); }
+
+      startAuto();
+
+      // pause on hover (desktop)
+      const slider = document.getElementById('slider');
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+
+      // basic touch support
+      let touchStartX = 0;
+      slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stopAuto(); }, {passive:true});
+      slider.addEventListener('touchend', (e) => {
+        const diff = (e.changedTouches[0].clientX - touchStartX);
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) next(); else prev();
+        }
+        setTimeout(startAuto, 4000);
+      }, {passive:true});
+
+      // Booking form - simulate sending request (no backend)
+      const form = document.getElementById('booking-form');
+      const status = document.getElementById('form-status');
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        status.textContent = 'Sending request…';
+        // simulate sending
+        setTimeout(() => {
+          status.textContent = 'Request sent. Edison will contact you to confirm. Thank you!';
+          form.reset();
+        }, 900);
+      });
+    })();
+  </script>
+</body>
+</html>
