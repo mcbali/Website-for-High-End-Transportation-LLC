@@ -541,13 +541,13 @@ footer {
 
 @media (max-width: 480px) {
     html {
-    font-size: 48%;
+    font-size: 50%;
   }
 }
 
 @media (max-width: 390px) {
   html {
-    font-size: 44%;
+    font-size: 50%;
   }
 
 }
