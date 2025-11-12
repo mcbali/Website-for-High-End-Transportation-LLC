@@ -320,7 +320,7 @@ section:not(.hero) {
 /* Caption heading */
 .caption-overlay h3 {
   color: var(--accent-3);
-  font-size: clamp(1rem, 3.25vw, 3.5rem);
+  font-size: clamp(1rem, 3.5vw, 3.5rem);
   font-weight: 600;
   line-height: 1.2;
   text-shadow: 0 0 0.6rem rgba(245, 197, 24, 0.3);
@@ -554,6 +554,9 @@ footer {
     font-size: 48%;
   }
   .hero { height: 60vh; }
+  .white-line {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 390px) {
